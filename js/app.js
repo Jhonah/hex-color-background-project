@@ -1,19 +1,12 @@
-(function() {
-    const button = document.querySelector('#btn')
-    const body = document.querySelector('body')
-    const hexValues = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F']
-    const value = document.querySelector('#hex-value')
+const button = document.getElementById('btn');
+const hexValue = document.getElementById('hex-value');
+const body = document.querySelector('body');
+const colors = ["#FF0000", "#FFFF00", "#00FF00", "#00FFFF", "#FF00FF", "#0000FF"];
 
-    button.addEventListener('click', changeHex)
+body.style.backgroundColor = 'violet';
 
-    function changeHex(){
-        let hex = '#'
-
-        for (let i = 0; i < 6; i++){
-            const index = Math.floor(Math.random()*hexValues.length)
-            hex += hexValues[index]
-        }
-        value.textContent = hex
-        body.style.backgroundColor = hex
-    }
-} )()
+button.addEventListener('click', () => {
+    const colorIndex = parseInt(Math.random() * colors.length);
+    body.style.backgroundColor = colors[colorIndex];
+    hexValue.innerHTML = colors[colorIndex];
+})
